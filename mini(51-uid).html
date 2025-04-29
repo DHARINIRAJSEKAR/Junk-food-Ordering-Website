@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>BiteBloom - Junk Food Delivery</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      font-family: 'Poppins', sans-serif;
+      height: 100vh;
+      overflow: hidden;
+      color: white;
+    }
+    header {
+      background: rgba(0, 0, 0, 0.8);
+      padding: 15px 30px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    header h1 {
+      font-size: 30px;
+      color: #ffd700;
+    }
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 25px;
+    }
+    nav a {
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+      font-size: 16px;
+      cursor: pointer;
+      transition: color 0.3s;
+    }
+    nav a:hover {
+      color: #ffd700;
+    }
+    .screen {
+      display: none;
+      height: calc(100vh - 70px);
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      padding: 50px;
+      text-align: center;
+      overflow-y: auto;
+    }
+    .active {
+      display: block;
+    }
+    h2 {
+      font-size: 45px;
+      margin-bottom: 20px;
+      text-shadow: 2px 2px 5px #000;
+    }
+    p {
+      font-size: 20px;
+      max-width: 700px;
+      margin: auto;
+      text-shadow: 1px 1px 4px #000;
+    }
+    .btn {
+      display: inline-block;
+      margin-top: 20px;
+      background: #ff9933;
+      padding: 12px 25px;
+      border-radius: 30px;
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+      transition: background 0.3s;
+      cursor: pointer;
+    }
+    .btn:hover {
+      background: #e67300;
+    }
+    .menu-items {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+      justify-content: center;
+      margin-top: 30px;
+    }
+    .item {
+      background: rgba(255, 255, 255, 0.85);
+      color: #333;
+      border-radius: 15px;
+      padding: 15px;
+      width: 220px;
+      box-shadow: 0 5px 10px rgba(0,0,0,0.3);
+      transition: transform 0.3s;
+    }
+    .item:hover {
+      transform: scale(1.05);
+    }
+    .item img {
+      width: 100%;
+      border-radius: 10px;
+      margin-bottom: 10px;
+    }
+    form {
+      background: rgba(255,255,255,0.9);
+      padding: 30px;
+      border-radius: 15px;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+      max-width: 400px;
+      margin: auto;
+      margin-top: 20px;
+      color: #333;
+    }
+    input, textarea, select {
+      width: 100%;
+      padding: 10px;
+      margin-top: 10px;
+      margin-bottom: 20px;
+      border-radius: 8px;
+      border: 1px solid #ccc;
+      font-size: 16px;
+    }
+    footer {
+      background: rgba(0, 0, 0, 0.8);
+      padding: 15px;
+      text-align: center;
+      font-size: 14px;
+      position: fixed;
+      width: 100%;
+      bottom: 0;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>BiteBloom</h1>
+    <nav>
+      <ul>
+        <li><a onclick="showScreen('home')">Home</a></li>
+        <li><a onclick="showScreen('menu')">Menu</a></li>
+        <li><a onclick="showScreen('order')">Order</a></li>
+        <li><a onclick="showScreen('about')">About</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- Home Screen -->
+  <div id="home" class="screen active" style="background-image: url('https://images.unsplash.com/photo-1600891964599-f61ba0e24092');">
+    <h2>Welcome to BiteBloom!</h2>
+    <p>Hot & crispy junk food delivered straight to your doorstep. Taste the magic now!</p>
+    <a class="btn" onclick="showScreen('menu')">See Menu</a>
+  </div>
+
+  <!-- Menu Screen -->
+  <div id="menu" class="screen" style="background-image: url('https://images.unsplash.com/photo-1552332386-f8dd00dc2f85');">
+    <h2>Our Menu</h2>
+    <div class="menu-items">
+      <div class="item"><img src="https://www.foodiesfeed.com/wp-content/uploads/2023/05/juicy-cheeseburger.jpg" alt="Burger"><h3>Cheesy Burger</h3><p>₹150</p></div>
+      <div class="item"><img src="https://slicelife.imgix.net/10034/photos/original/145397606_4336128223070897_8944247835029909740_n.jpg?auto=compress&auto=format" alt="Pizza"><h3>Deluxe Pizza</h3><p>₹250</p></div>
+      <div class="item"><img src="https://www.africanbites.com/wp-content/uploads/2022/02/IMG_4227-600x600.jpg" alt="Fries"><h3>Crispy Fries</h3><p>₹80</p></div>
+      <div class="item"><img src="https://tse2.mm.bing.net/th/id/OIP.CgwSt_HQJV5l3rhHdAwLDwHaHa?rs=1&pid=ImgDetMain" alt="Ice Cream"><h3>Choco Ice Cream</h3><p>₹100</p></div>
+      <div class="item"><img src="https://www.yellowblissroad.com/wp-content/uploads/2019/02/Club-Sandwich-SQUARE2.jpg" alt="Sandwich"><h3>Club Sandwich</h3><p>₹120</p></div>
+      <div class="item"><img src="https://recipefairy.com/wp-content/uploads/2020/05/mcdonalds-chicken-nuggets-1024x1024.jpg" alt="Nuggets"><h3>Chicken Nuggets</h3><p>₹140</p></div>
+      <div class="item"><img src="https://tse2.mm.bing.net/th/id/OIP.0FgtybagMUXcT3GAkz0odAD6D6?rs=1&pid=ImgDetMain" alt="Pasta"><h3>Creamy Pasta</h3><p>₹180</p></div>
+      <div class="item"><img src="https://www.modernhoney.com/wp-content/uploads/2023/01/Ground-Beef-Tacos-11-crop-scaled.jpg" alt="Tacos"><h3>Mexican Tacos</h3><p>₹130</p></div>
+      <div class="item"><img src="https://tse1.mm.bing.net/th/id/OIP.zjtVZgtJsS5znQQlS5TmJQHaHa?rs=1&pid=ImgDetMain" alt="Momos"><h3>Veg Momos</h3><p>₹90</p></div>
+      <div class="item"><img src="https://sugargeekshow.com/wp-content/uploads/2019/10/fudgy_brownie_recipe_featured.jpg" alt="Brownie"><h3>Chocolate Brownie</h3><p>₹110</p></div>
+    </div>
+  </div>
+
+  <!-- Order Screen with background -->
+  <div id="order" class="screen active" style="background-image: url('https://images.unsplash.com/photo-1552332386-f8dd00dc2f85'); background-size: cover; background-position: center;">
+    <h2>Place Your Order</h2>
+    <form onsubmit="submitOrder(event)">
+      <input type="text" placeholder="Full Name" required>
+      <input type="text" placeholder="Delivery Address" required>
+      <input type="tel" placeholder="Phone Number" required>
+      <select required>
+        <option value="">Select Item</option>
+        <option>Cheesy Burger</option>
+        <option>Deluxe Pizza</option>
+        <option>Crispy Fries</option>
+        <option>Choco Ice Cream</option>
+        <option>Club Sandwich</option>
+        <option>Chicken Nuggets</option>
+        <option>Creamy Pasta</option>
+        <option>Mexican Tacos</option>
+        <option>Veg Momos</option>
+        <option>Chocolate Brownie</option>
+      </select>
+      <textarea rows="3" placeholder="Additional Notes"></textarea>
+      <button type="submit" class="btn">Confirm Order</button>
+    </form>
+  </div>
+
+  <!-- Order Confirmation Screen -->
+  <div id="delivered" class="screen" style="background-image: url('https://images.unsplash.com/photo-1552332386-f8dd00dc2f85');">
+    <h2>Order Delivered!</h2>
+    <p>Thank you for ordering from BiteBloom. Enjoy your delicious food!</p>
+    <a class="btn" onclick="showScreen('home')">Back to Home</a>
+  </div>
+
+  <!-- About Screen -->
+  <div id="about" class="screen" style="background-image: url('https://images.unsplash.com/photo-1499028344343-cd173ffc68a9');">
+    <h2>About BiteBloom</h2>
+    <p>At BiteBloom, we believe in delivering smiles through every bite. Fast, Fresh and Delicious - that’s our promise to you.</p>
+  </div>
+
+  <footer>
+    <p>© 2025 BiteBloom. All rights reserved.</p>
+  </footer>
+
+  <script>
+    function showScreen(screenId) {
+      var screens = document.querySelectorAll('.screen');
+      screens.forEach(function(screen) {
+        screen.classList.remove('active');
+      });
+      document.getElementById(screenId).classList.add('active');
+    }
+
+    function submitOrder(event) {
+      event.preventDefault();
+      showScreen('delivered');
+    }
+  </script>
+
+</body>
+</html>
